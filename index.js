@@ -243,7 +243,7 @@ function connect (req, opts, fn) {
         socket = net.connect(opts);
       }
       return fn(null, socket);
-    } else if ('SOCKS' == type) {
+    } else if ('SOCKS' == type || 'SOCKS5' == type || 'SOCKS4' == type) {
       // use a SOCKS proxy
       agent = new SocksProxyAgent('socks://' + parts[1]);
     } else if ('PROXY' == type || 'HTTPS' == type) {
